@@ -115,6 +115,16 @@
 <img src="images/dice/Damage-7.png" alt="Damage-7" height="50">
 <img src="images/dice/Damage-8.png" alt="Damage-8" height="50">
 
+<h3>Direction Dice Faces</h3>
+<img src="images/dice/Direction-1.png" alt="Direction-1" height="50">
+<img src="images/dice/Direction-2.png" alt="Direction-2" height="50">
+<img src="images/dice/Direction-3.png" alt="Direction-3" height="50">
+<br>
+<img src="images/dice/Direction-4.png" alt="Direction-4" height="50">
+<img src="images/dice/Direction-5.png" alt="Direction-5" height="50">
+<img src="images/dice/Direction-6.png" alt="Direction-6" height="50">
+
+
 <h2>Population Rolls</h2>
 <table>
 	<tr>
@@ -206,6 +216,15 @@
 	</tr>
 </table>
 <div id="damageDice">
+</div>
+
+<h2>Direction Rolls</h2>
+<table>
+	<tr>
+		<td><button type="button" onclick="rollDirectionDice()">Roll</button></td>
+	</tr>
+</table>
+<div id="directionDice">
 </div>
 
 <script>
@@ -514,7 +533,7 @@ function rollEncounterDice() {
 }
 
 function rollDamageDice() { 
-	var src = document.getElementById("encounterDice");
+	var src = document.getElementById("damageDice");
 	
 	while (src.firstChild) {
 		src.removeChild(src.firstChild);
@@ -527,6 +546,19 @@ function rollDamageDice() {
 		img.height="50";
 		src.appendChild(img);
 	}
+}
+
+function rollDirectionDice() { 
+	var src = document.getElementById("directionDice");
+	
+	while (src.firstChild) {
+		src.removeChild(src.firstChild);
+	}
+	rnd = getRndInteger(1,6);
+	var img = document.createElement("img");
+	img.src = "images/dice/Direction-" + rnd + ".png";
+	img.height="50";
+	src.appendChild(img);
 }
 
 function getRndInteger(min, max) {
