@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="encounter.js" type="text/javascript"></script>
+        <title>
+            Hunt & Gather Dice App
+        </title>
+    </head>
+    <body>
+        <h1>Hunt & Gather Dice App</h1>
+        <button id="display" onclick="changToDisplayPage()">Display Dice</button>
+        <button id="population" onclick="changToPopulationPage()">Population Dice</button>
+
+        <h2>Attacker Encounter Rolls</h2>
+        <table>
+            <tr>
+                <td><p>Attacker Light dice:</p></td>
+                <td><p id="attackerLight">0</p></td>
+                <td><button type="button" onclick="substractAttackerLightDice()">-</button></td>
+                <td><button type="button" onclick="addAttackerLightDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Attacker Medium dice:</p></td>
+                <td><p id="attackerMedium">0</p></td>
+                <td><button type="button" onclick="substractAttackerMediumDice()">-</button></td>
+                <td><button type="button" onclick="addAttackerMediumDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Attacker Heavy dice:</p></td>
+                <td><p id="attackerHeavy">0</p></td>
+                <td><button type="button" onclick="substractAttackerHeavyDice()">-</button></td>
+                <td><button type="button" onclick="addAttackerHeavyDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Defender Light dice:</p></td>
+                <td><p id="defenderLight">0</p></td>
+                <td><button type="button" onclick="substractDefenderLightDice()">-</button></td>
+                <td><button type="button" onclick="addDefenderLightDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Defender Medium dice:</p></td>
+                <td><p id="defenderMedium">0</p></td>
+                <td><button type="button" onclick="substractDefenderMediumDice()">-</button></td>
+                <td><button type="button" onclick="addDefenderMediumDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Defender Heavy dice:</p></td>
+                <td><p id="defenderHeavy">0</p></td>
+                <td><button type="button" onclick="substractDefenderHeavyDice()">-</button></td>
+                <td><button type="button" onclick="addDefenderHeavyDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="rollEncounterDice()">Roll</button></td>
+            </tr>
+        </table>
+        <div id="encounterDice">
+        </div>
+
+    </body>
+</html>
