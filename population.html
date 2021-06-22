@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="population.js" type="text/javascript"></script>
+        <title>
+            Hunt & Gather Dice App
+        </title>
+    </head>
+    <body>
+        <h1>Hunt & Gather Dice App</h1>
+        <button id="encounter" onclick="changToEncounterPage()">Encounter Dice</button>
+        <button id="display" onclick="changToDisplayPage()">Display Dice</button>
+
+        <h2>Population Rolls</h2>
+        <table>
+            <tr>
+                <td><p>Child dice:</p></td>
+                <td><p id="child">3</p></td>
+                <td><button type="button" onclick="substractChildDice()">-</button></td>
+                <td><button type="button" onclick="addChildDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Female dice:</p></td>
+                <td><p id="female">3</p></td>
+                <td><button type="button" onclick="substractFemaleDice()">-</button></td>
+                <td><button type="button" onclick="addFemaleDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Male dice:</p></td>
+                <td><p id="male">3</p></td>
+                <td><button type="button" onclick="substractMaleDice()">-</button></td>
+                <td><button type="button" onclick="addMaleDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><p>Elder dice:</p></td>
+                <td><p id="elder">3</p></td>
+                <td><button type="button" onclick="substractElderDice()">-</button></td>
+                <td><button type="button" onclick="addElderDice()">+</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="rollPopulationDice()">Roll</button></td>
+            </tr>
+        </table>
+        <div id="populationDice">
+        </div>
+    </body>
+</html>
