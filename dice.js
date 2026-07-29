@@ -383,14 +383,12 @@ function createRoller(config) {
 function renderFaceReference(mountId, keys) {
     var mount = document.getElementById(mountId);
 
-    keys.forEach(function (key, index) {
+    keys.forEach(function (key) {
         var die = DICE[key];
 
+        /* Every die starts collapsed - the page is a lookup table, not a reading list. */
         var details = document.createElement("details");
         details.className = "faces";
-        if (index === 0) {
-            details.open = true;
-        }
 
         var summary = document.createElement("summary");
         summary.innerHTML =
