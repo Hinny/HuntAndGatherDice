@@ -7,7 +7,7 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <title>Population Dice · Hunt &amp; Gather</title>
+        <title>Action Dice · Hunt &amp; Gather</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <script src="dice.js"></script>
     </head>
@@ -17,14 +17,14 @@
                 <p class="brand">Hunt &amp; Gather <span>Dice</span></p>
                 <nav class="tabs">
                     <a href="index.html">Faces</a>
-                    <a href="population.html" aria-current="page">Population</a>
-                    <a href="action.html">Action</a>
+                    <a href="population.html">Population</a>
+                    <a href="action.html" aria-current="page">Action</a>
                 </nav>
             </div>
         </header>
 
         <main>
-            <h1 class="page-title">Population Dice</h1>
+            <h1 class="page-title">Action Dice</h1>
 
             <section class="card">
                 <h2>Dice pool</h2>
@@ -45,9 +45,10 @@
 
         <script>
             createRoller({
-                storageKey: "hg-population-counts",
+                storageKey: "hg-action-counts",
                 sections: [
-                    { title: "Population", keys: ["green", "blue", "red", "yellow"], defaultCount: 3 }
+                    { title: "White", keys: ["whiteLight", "whiteMedium", "whiteHeavy"], defaultCount: 0 },
+                    { title: "Black", keys: ["blackLight", "blackMedium", "blackHeavy"], defaultCount: 0 }
                 ]
             });
         </script>

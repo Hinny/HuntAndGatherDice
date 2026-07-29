@@ -1,16 +1,501 @@
-body {
-    background-color: darkgray
-}
-h1 {
-    color: black;
-}
-h2 {
-    color: black;
-}
-h3 {
-    color: black;
+:root {
+    --bg: #171613;
+    --surface: #221f1a;
+    --surface-2: #2c2822;
+    --line: #3b362e;
+    --text: #f4efe6;
+    --muted: #a99e8d;
+    --accent: #e0913c;
+    --accent-dim: #a9682338;
+    --ink: #1a1409;
+    --radius: 14px;
+    --tap: 44px;
 }
 
-p {
-    color: black;
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.45;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Header / nav ---------- */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #171613e6;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.6rem max(1rem, env(safe-area-inset-right)) 0.6rem max(1rem, env(safe-area-inset-left));
+}
+
+.topbar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+}
+
+.brand {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.brand span {
+    color: var(--accent);
+}
+
+nav.tabs {
+    display: flex;
+    gap: 0.35rem;
+    margin-left: auto;
+}
+
+nav.tabs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 0.75rem;
+    border-radius: 999px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+nav.tabs a:hover {
+    color: var(--text);
+    background: var(--surface-2);
+}
+
+nav.tabs a[aria-current="page"] {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+/* ---------- Layout ---------- */
+
+main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.25rem max(1rem, env(safe-area-inset-left)) 2rem max(1rem, env(safe-area-inset-right));
+}
+
+h1.page-title {
+    font-size: 1.6rem;
+    margin: 0 0 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card > h2 {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.hint {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+/* ---------- Steppers ---------- */
+
+.stepper-group + .stepper-group {
+    margin-top: 1rem;
+}
+
+.stepper-group > h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.stepper-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+@media (min-width: 620px) {
+    .stepper-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.35rem 0.45rem 0.35rem 0.7rem;
+}
+
+.stepper-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+    flex: 1;
+    font-weight: 600;
+}
+
+.stepper-label .sub {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/*
+ * The die's blank face, used as its icon. The art is a transparent PNG of the real
+ * polyhedron, so the rim light is what keeps the near-black dice readable on the
+ * dark surface.
+ */
+img.swatch {
+    width: 26px;
+    height: 26px;
+    flex: none;
+    object-fit: contain;
+    filter: drop-shadow(0 0 0.5px #ffffff8c) drop-shadow(0 1px 1px #0000006b);
+}
+
+.stepper-ctl {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    flex: none;
+}
+
+button.step {
+    width: var(--tap);
+    height: var(--tap);
+    flex: none;
+    font-size: 1.35rem;
+    line-height: 1;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+button.step:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+button.step:active:not(:disabled) {
+    transform: scale(0.94);
+}
+
+button.step:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+output.count {
+    min-width: 2.4rem;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+output.count.is-max {
+    color: var(--accent);
+}
+
+output.count .of {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: var(--tap);
+    padding: 0 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--surface-2);
+    color: var(--text);
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--ink);
+}
+
+.btn-ghost:hover:not(:disabled) {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.actionbar {
+    position: sticky;
+    bottom: 0;
+    z-index: 9;
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.7rem 0 calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(to top, var(--bg) 60%, #17161300);
+}
+
+.actionbar .btn {
+    flex: 1;
+}
+
+/* ---------- Dice results ---------- */
+
+.result-group {
+    margin-bottom: 1rem;
+}
+
+.result-group:last-child {
+    margin-bottom: 0;
+}
+
+.result-group > h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+.dice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+    gap: 0.5rem;
+}
+
+@media (min-width: 620px) {
+    .dice-grid {
+        grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+    }
+}
+
+.die {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    animation: pop 0.18s ease-out both;
+}
+
+.die img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    object-fit: cover;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.die[aria-pressed="true"] {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.die[aria-pressed="true"] img {
+    transform: scale(0.9);
+}
+
+.die:disabled {
+    cursor: default;
+}
+
+.die.is-rerolled {
+    border-color: #e0913c66;
+}
+
+.die .badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 22px;
+    height: 22px;
+    display: none;
+    place-items: center;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    background: var(--accent);
+    color: var(--ink);
+    box-shadow: 0 0 0 2px var(--surface);
+}
+
+.die[aria-pressed="true"] .badge,
+.die.is-rerolled .badge {
+    display: grid;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Separate keyframe name so adding the class restarts the animation. */
+@keyframes reroll-pop {
+    from {
+        transform: scale(0.74) rotate(-7deg);
+    }
+    to {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.die.just-rerolled {
+    animation: reroll-pop 0.26s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .die,
+    .die.just-rerolled {
+        animation: none;
+    }
+    .die img {
+        transition: none;
+    }
+    .btn:active:not(:disabled),
+    button.step:active:not(:disabled) {
+        transform: none;
+    }
+}
+
+.empty {
+    color: var(--muted);
+    text-align: center;
+    padding: 1.25rem 0;
+    margin: 0;
+}
+
+/* ---------- Faces reference ---------- */
+
+details.faces {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 0.6rem;
+}
+
+details.faces > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: var(--tap);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    border-radius: var(--radius);
+}
+
+details.faces > summary::-webkit-details-marker {
+    display: none;
+}
+
+details.faces > summary::after {
+    content: "+";
+    margin-left: auto;
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+details.faces[open] > summary::after {
+    content: "\2212";
+}
+
+details.faces > summary .sub {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+details.faces .dice-grid {
+    padding: 0 1rem 1rem;
+}
+
+details.faces .dice-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 9px;
 }

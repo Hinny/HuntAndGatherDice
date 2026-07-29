@@ -1,124 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="theme-color" content="#171613">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <title>Hunt &amp; Gather Dice App</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="index.js" type="text/javascript"></script>
-        <title>
-            Hunt & Gather Dice App
-        </title>
+        <script src="dice.js"></script>
     </head>
     <body>
-        <h1>Hunt & Gather Dice App</h1>
-        <button id="population" onclick="changToPopulationPage()">Population Dice</button>
-        <button id="encounter" onclick="changToEncounterPage()">Encounter Dice</button>
+        <header class="topbar">
+            <div class="topbar-inner">
+                <p class="brand">Hunt &amp; Gather <span>Dice</span></p>
+                <nav class="tabs">
+                    <a href="index.html" aria-current="page">Faces</a>
+                    <a href="population.html">Population</a>
+                    <a href="action.html">Action</a>
+                </nav>
+            </div>
+        </header>
 
-        <h3>Child Population Dice Faces</h3>
-            <img src="images/dice/Child-1.png" alt="Child-1" height="50">
-            <img src="images/dice/Child-2.png" alt="Child-2" height="50">
-            <img src="images/dice/Child-3.png" alt="Child-3" height="50">
-            <br>
-            <img src="images/dice/Child-4.png" alt="Child-4" height="50">
-            <img src="images/dice/Child-5.png" alt="Child-5" height="50">
-            <img src="images/dice/Child-6.png" alt="Child-6" height="50">
+        <main>
+            <h1 class="page-title">Dice Faces</h1>
+            <p class="hint">Every face of every die in the box. Tap a die type to expand it.</p>
 
-        <h3>Female Population Dice Faces</h3>
-            <img src="images/dice/Female-1.png" alt="Female-1" height="50">
-            <img src="images/dice/Female-2.png" alt="Female-2" height="50">
-            <img src="images/dice/Female-3.png" alt="Female-3" height="50">
-            <br>
-            <img src="images/dice/Female-4.png" alt="Female-4" height="50">
-            <img src="images/dice/Female-5.png" alt="Female-5" height="50">
-            <img src="images/dice/Female-6.png" alt="Female-6" height="50">
+            <section id="faces-population">
+                <h2 class="hint">Population dice</h2>
+            </section>
+            <section id="faces-white">
+                <h2 class="hint">White action dice</h2>
+            </section>
+            <section id="faces-black">
+                <h2 class="hint">Black action dice</h2>
+            </section>
+        </main>
 
-        <h3>Male Population Dice Faces</h3>
-            <img src="images/dice/Male-1.png" alt="Male-1" height="50">
-            <img src="images/dice/Male-2.png" alt="Male-2" height="50">
-            <img src="images/dice/Male-3.png" alt="Male-3" height="50">
-            <br>
-            <img src="images/dice/Male-4.png" alt="Male-4" height="50">
-            <img src="images/dice/Male-5.png" alt="Male-5" height="50">
-            <img src="images/dice/Male-6.png" alt="Male-6" height="50">
-
-        <h3>Elder Population Dice Faces</h3>
-            <img src="images/dice/Elder-1.png" alt="Elder-1" height="50">
-            <img src="images/dice/Elder-2.png" alt="Elder-2" height="50">
-            <img src="images/dice/Elder-3.png" alt="Elder-3" height="50">
-            <br>
-            <img src="images/dice/Elder-4.png" alt="Elder-4" height="50">
-            <img src="images/dice/Elder-5.png" alt="Elder-5" height="50">
-            <img src="images/dice/Elder-6.png" alt="Elder-6" height="50">
-
-        <h3>Attacker Light Dice Faces</h3>
-            <img src="images/dice/Black-Light-1.png" alt="Black-Light-1" height="50">
-            <img src="images/dice/Black-Light-2.png" alt="Black-Light-2" height="50">
-            <img src="images/dice/Black-Light-3.png" alt="Black-Light-3" height="50">
-            <br>
-            <img src="images/dice/Black-Light-4.png" alt="Black-Light-4" height="50">
-            <img src="images/dice/Black-Light-5.png" alt="Black-Light-5" height="50">
-            <img src="images/dice/Black-Light-6.png" alt="Black-Light-6" height="50">
-
-        <h3>Attacker Medium Dice Faces</h3>
-            <img src="images/dice/Black-Medium-1.png" alt="Black-Medium-1" height="50">
-            <img src="images/dice/Black-Medium-2.png" alt="Black-Medium-2" height="50">
-            <img src="images/dice/Black-Medium-3.png" alt="Black-Medium-3" height="50">
-            <img src="images/dice/Black-Medium-4.png" alt="Black-Medium-4" height="50">
-            <br>
-            <img src="images/dice/Black-Medium-5.png" alt="Black-Medium-5" height="50">
-            <img src="images/dice/Black-Medium-6.png" alt="Black-Medium-6" height="50">
-            <img src="images/dice/Black-Medium-7.png" alt="Black-Medium-7" height="50">
-            <img src="images/dice/Black-Medium-8.png" alt="Black-Medium-8" height="50">
-
-        <h3>Attacker Heavy Dice Faces</h3>
-            <img src="images/dice/Black-Heavy-1.png" alt="Black-Heavy-1" height="50">
-            <img src="images/dice/Black-Heavy-2.png" alt="Black-Heavy-2" height="50">
-            <img src="images/dice/Black-Heavy-3.png" alt="Black-Heavy-3" height="50">
-            <img src="images/dice/Black-Heavy-4.png" alt="Black-Heavy-4" height="50">
-            <br>
-            <img src="images/dice/Black-Heavy-5.png" alt="Black-Heavy-5" height="50">
-            <img src="images/dice/Black-Heavy-6.png" alt="Black-Heavy-6" height="50">
-            <img src="images/dice/Black-Heavy-7.png" alt="Black-Heavy-7" height="50">
-            <img src="images/dice/Black-Heavy-8.png" alt="Black-Heavy-8" height="50">
-            <br>
-            <img src="images/dice/Black-Heavy-9.png" alt="Black-Heavy-9" height="50">
-            <img src="images/dice/Black-Heavy-10.png" alt="Black-Heavy-10" height="50">
-            <img src="images/dice/Black-Heavy-11.png" alt="Black-Heavy-11" height="50">
-            <img src="images/dice/Black-Heavy-12.png" alt="Black-Heavy-12" height="50">
-        
-        <h3>Defender Light Dice Faces</h3>
-            <img src="images/dice/White-Light-1.png" alt="White-Light-1" height="50">
-            <img src="images/dice/White-Light-2.png" alt="White-Light-2" height="50">
-            <img src="images/dice/White-Light-3.png" alt="White-Light-3" height="50">
-            <br>
-            <img src="images/dice/White-Light-4.png" alt="White-Light-4" height="50">
-            <img src="images/dice/White-Light-5.png" alt="White-Light-5" height="50">
-            <img src="images/dice/White-Light-6.png" alt="White-Light-6" height="50">
-
-        <h3>Defender Medium Dice Faces</h3>
-            <img src="images/dice/White-Medium-1.png" alt="White-Medium-1" height="50">
-            <img src="images/dice/White-Medium-2.png" alt="White-Medium-2" height="50">
-            <img src="images/dice/White-Medium-3.png" alt="White-Medium-3" height="50">
-            <img src="images/dice/White-Medium-4.png" alt="White-Medium-4" height="50">
-            <br>
-            <img src="images/dice/White-Medium-5.png" alt="White-Medium-5" height="50">
-            <img src="images/dice/White-Medium-6.png" alt="White-Medium-6" height="50">
-            <img src="images/dice/White-Medium-7.png" alt="White-Medium-7" height="50">
-            <img src="images/dice/White-Medium-8.png" alt="White-Medium-8" height="50">
-
-        <h3>Defender Heavy Dice Faces</h3>
-            <img src="images/dice/White-Heavy-1.png" alt="White-Heavy-1" height="50">
-            <img src="images/dice/White-Heavy-2.png" alt="White-Heavy-2" height="50">
-            <img src="images/dice/White-Heavy-3.png" alt="White-Heavy-3" height="50">
-            <img src="images/dice/White-Heavy-4.png" alt="White-Heavy-4" height="50">
-            <br>
-            <img src="images/dice/White-Heavy-5.png" alt="White-Heavy-5" height="50">
-            <img src="images/dice/White-Heavy-6.png" alt="White-Heavy-6" height="50">
-            <img src="images/dice/White-Heavy-7.png" alt="White-Heavy-7" height="50">
-            <img src="images/dice/White-Heavy-8.png" alt="White-Heavy-8" height="50">
-            <br>
-            <img src="images/dice/White-Heavy-9.png" alt="White-Heavy-9" height="50">
-            <img src="images/dice/White-Heavy-10.png" alt="White-Heavy-10" height="50">
-            <img src="images/dice/White-Heavy-11.png" alt="White-Heavy-11" height="50">
-            <img src="images/dice/White-Heavy-12.png" alt="White-Heavy-12" height="50">
+        <script>
+            renderFaceReference("faces-population", ["green", "blue", "red", "yellow"]);
+            renderFaceReference("faces-white", ["whiteLight", "whiteMedium", "whiteHeavy"]);
+            renderFaceReference("faces-black", ["blackLight", "blackMedium", "blackHeavy"]);
+        </script>
     </body>
 </html>
