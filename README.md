@@ -19,10 +19,10 @@ no dependencies — open `index.html` or serve the folder.
 
 | Die | Faces | Available |
 | --- | --- | --- |
-| Green population (Child) | 6 | 6 |
-| Blue population (Male) | 6 | 6 |
-| Red population (Female) | 6 | 6 |
-| Yellow population (Elder) | 6 | 6 |
+| Child population (Green) | 6 | 6 |
+| Male population (Blue) | 6 | 6 |
+| Female population (Red) | 6 | 6 |
+| Elder population (Yellow) | 6 | 6 |
 | White light | 6 | 6 |
 | White medium | 8 | 5 |
 | White heavy | 12 | 4 |

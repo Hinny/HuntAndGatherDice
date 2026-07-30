@@ -8,10 +8,10 @@
  *           octahedron / dodecahedron), so it doubles as the die's icon
  */
 var DICE = {
-    green: { label: "Green", sub: "Child", prefix: "Child", faces: 6, max: 6, blank: 6 },
-    blue: { label: "Blue", sub: "Male", prefix: "Male", faces: 6, max: 6, blank: 6 },
-    red: { label: "Red", sub: "Female", prefix: "Female", faces: 6, max: 6, blank: 6 },
-    yellow: { label: "Yellow", sub: "Elder", prefix: "Elder", faces: 6, max: 6, blank: 6 },
+    green: { label: "Child", sub: "Green", prefix: "Child", faces: 6, max: 6, blank: 6 },
+    blue: { label: "Male", sub: "Blue", prefix: "Male", faces: 6, max: 6, blank: 6 },
+    red: { label: "Female", sub: "Red", prefix: "Female", faces: 6, max: 6, blank: 6 },
+    yellow: { label: "Elder", sub: "Yellow", prefix: "Elder", faces: 6, max: 6, blank: 6 },
 
     whiteLight: { label: "White Light", prefix: "White-Light", faces: 6, max: 6, blank: 6 },
     whiteMedium: { label: "White Medium", prefix: "White-Medium", faces: 8, max: 5, blank: 8 },
