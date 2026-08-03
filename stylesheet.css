@@ -156,6 +156,21 @@ h1.page-title {
     }
 }
 
+/* Wraps a stepper together with the rule note that appears when it hits 0. */
+.stepper-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.stepper-note {
+    margin: 0.4rem 0 0;
+    padding-left: 0.7rem;
+    border-left: 2px solid var(--accent);
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: var(--muted);
+}
+
 .stepper {
     display: flex;
     align-items: center;
@@ -183,9 +198,9 @@ h1.page-title {
 }
 
 /*
- * The face a die uses as its icon. Where the art is a transparent PNG of the real
- * polyhedron, the rim light is what keeps the near-black dice readable on the
- * dark surface.
+ * The die's empty face, used as its icon. Where the art is a transparent PNG of
+ * the real polyhedron, the rim light is what keeps the near-black dice readable
+ * on the dark surface.
  */
 img.swatch {
     width: 26px;

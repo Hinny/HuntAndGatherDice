@@ -48,9 +48,13 @@
             createRoller({
                 storageKey: "hg-growth-counts",
                 sections: [
-                    { title: "Fertility", keys: ["fertility"], defaultCount: 2 },
-                    { title: "Maturity", keys: ["maturity"], defaultCount: 2 }
-                ]
+                    { title: "Fertility", keys: ["fertility"], defaultCount: 1 },
+                    { title: "Maturity", keys: ["maturity"], defaultCount: 1 }
+                ],
+                zeroNotes: {
+                    fertility: "If you have at least 1 healthy female member in your settlement the minimum number of fertility dice in the growth dice pool is 1.",
+                    maturity: "If you have at least 1 healthy child member in your settlement the minimum number of maturity dice in the growth dice pool is 1."
+                }
             });
         </script>
     </body>
