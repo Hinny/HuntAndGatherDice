@@ -7,7 +7,7 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <title>Population Dice · Hunt &amp; Gather</title>
+        <title>Growth Dice · Hunt &amp; Gather</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <script src="dice.js"></script>
     </head>
@@ -17,14 +17,15 @@
                 <p class="brand">Hunt &amp; Gather <span>Dice</span></p>
                 <nav class="tabs">
                     <a href="index.html">Faces</a>
-                    <a href="population.html" aria-current="page">Population</a>
+                    <a href="growth.html" aria-current="page">Growth</a>
+                    <a href="tribe.html">Tribe</a>
                     <a href="action.html">Action</a>
                 </nav>
             </div>
         </header>
 
         <main>
-            <h1 class="page-title">Population Dice</h1>
+            <h1 class="page-title">Growth Dice</h1>
 
             <section class="card">
                 <h2>Dice pool</h2>
@@ -45,10 +46,15 @@
 
         <script>
             createRoller({
-                storageKey: "hg-population-counts",
+                storageKey: "hg-growth-counts",
                 sections: [
-                    { title: "Population", keys: ["green", "blue", "red", "yellow"], defaultCount: 3 }
-                ]
+                    { title: "Fertility", keys: ["fertility"], defaultCount: 1 },
+                    { title: "Maturity", keys: ["maturity"], defaultCount: 1 }
+                ],
+                zeroNotes: {
+                    fertility: "If you have at least 1 healthy female member in your settlement the minimum number of fertility dice in the growth dice pool is 1.",
+                    maturity: "If you have at least 1 healthy child member in your settlement the minimum number of maturity dice in the growth dice pool is 1."
+                }
             });
         </script>
     </body>

@@ -4,31 +4,33 @@
  * prefix -> image file name stem in images/dice/
  * faces  -> number of distinct faces on the physical die
  * max    -> how many of that die exist in the box
- * blank  -> the empty face; its art shows the die's real silhouette (cube /
- *           octahedron / dodecahedron), so it doubles as the die's icon
+ *
+ * Every die also has a "<prefix>-Empty.png": the die with none of its symbols
+ * on it. That is what the label icons use, so a die is recognised by its colour
+ * and silhouette rather than by whichever face happens to sit last in the list.
  */
 var DICE = {
-    green: { label: "Child", sub: "Green", prefix: "Child", faces: 6, max: 6, blank: 6 },
-    blue: { label: "Male", sub: "Blue", prefix: "Male", faces: 6, max: 6, blank: 6 },
-    red: { label: "Female", sub: "Red", prefix: "Female", faces: 6, max: 6, blank: 6 },
-    yellow: { label: "Elder", sub: "Yellow", prefix: "Elder", faces: 6, max: 6, blank: 6 },
+    fertility: { label: "Fertility", sub: "Green", prefix: "Fertility", faces: 6, max: 8 },
+    maturity: { label: "Maturity", sub: "Blue", prefix: "Maturity", faces: 6, max: 8 },
 
-    whiteLight: { label: "White Light", prefix: "White-Light", faces: 6, max: 6, blank: 6 },
-    whiteMedium: { label: "White Medium", prefix: "White-Medium", faces: 8, max: 5, blank: 8 },
-    whiteHeavy: { label: "White Heavy", prefix: "White-Heavy", faces: 12, max: 4, blank: 12 },
+    tribe: { label: "Tribe", prefix: "Tribe", faces: 8, max: 10 },
 
-    blackLight: { label: "Black Light", prefix: "Black-Light", faces: 6, max: 6, blank: 6 },
-    blackMedium: { label: "Black Medium", prefix: "Black-Medium", faces: 8, max: 5, blank: 8 },
-    blackHeavy: { label: "Black Heavy", prefix: "Black-Heavy", faces: 12, max: 4, blank: 12 }
+    whiteLight: { label: "White Light", prefix: "White-Light", faces: 6, max: 6 },
+    whiteMedium: { label: "White Medium", prefix: "White-Medium", faces: 8, max: 5 },
+    whiteHeavy: { label: "White Heavy", prefix: "White-Heavy", faces: 12, max: 4 },
+
+    blackLight: { label: "Black Light", prefix: "Black-Light", faces: 6, max: 6 },
+    blackMedium: { label: "Black Medium", prefix: "Black-Medium", faces: 8, max: 5 },
+    blackHeavy: { label: "Black Heavy", prefix: "Black-Heavy", faces: 12, max: 4 }
 };
 
 function faceImage(key, face) {
     return "images/dice/" + DICE[key].prefix + "-" + face + ".png";
 }
 
-/* Blank face of the die, used as its label icon so the shape gives visual context. */
+/* The die with no symbols on it, used as its label icon. */
 function dieIcon(key) {
-    return '<img class="swatch" src="' + faceImage(key, DICE[key].blank) + '" alt="">';
+    return '<img class="swatch" src="' + faceImage(key, "Empty") + '" alt="">';
 }
 
 function rollFace(key) {
@@ -56,7 +58,8 @@ function writeStoredCounts(storageKey, counts) {
  *
  * config = {
  *     storageKey: string,
- *     sections: [ { title: string, keys: [diceKey], defaultCount: number } ]
+ *     sections: [ { title: string, keys: [diceKey], defaultCount: number } ],
+ *     zeroNotes: { diceKey: string }   // shown under the stepper while it sits at 0
  * }
  *
  * Expects #setup, #results and #reroll to exist in the document.
@@ -164,7 +167,27 @@ function createRoller(config) {
         ctl.appendChild(plus);
         row.appendChild(ctl);
 
-        return row;
+        var note = zeroNoteFor(key);
+        if (!note) {
+            return row;
+        }
+
+        /* The note lives outside the row so it spans the stepper's full width. */
+        var cell = document.createElement("div");
+        cell.className = "stepper-cell";
+        cell.appendChild(row);
+
+        var noteEl = document.createElement("p");
+        noteEl.className = "stepper-note";
+        noteEl.id = "note-" + key;
+        noteEl.textContent = note;
+        cell.appendChild(noteEl);
+
+        return cell;
+    }
+
+    function zeroNoteFor(key) {
+        return (config.zeroNotes && config.zeroNotes[key]) || "";
     }
 
     function stepButton(text, delta, key, aria) {
@@ -200,6 +223,10 @@ function createRoller(config) {
             var row = out.closest(".stepper");
             row.querySelector('[data-delta="-1"]').disabled = value === 0;
             row.querySelector('[data-delta="1"]').disabled = value === die.max;
+
+            if (zeroNoteFor(key)) {
+                document.getElementById("note-" + key).hidden = value !== 0;
+            }
         });
 
         rollBtn.disabled = totalDice() === 0;
