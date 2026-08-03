@@ -32,8 +32,8 @@ no dependencies — open `index.html` or serve the folder.
 
 Steppers are clamped to the "Available" column, so you can never build a pool the box can't fill.
 
-Some faces repeat on the physical die (fertility 2–3; tribe 2–3, 4–5 and the two empty 7–8), so the
-face reference shows the same art more than once — that is the die, not a duplicate image.
+Some faces repeat on the physical die (fertility 2–3 and 4–5; tribe 2–3, 4–5 and the two empty 7–8),
+so the face reference shows the same art more than once — that is the die, not a duplicate image.
 
 ## Dice art
 
