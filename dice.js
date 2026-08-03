@@ -4,31 +4,33 @@
  * prefix -> image file name stem in images/dice/
  * faces  -> number of distinct faces on the physical die
  * max    -> how many of that die exist in the box
- * blank  -> the empty face; its art shows the die's real silhouette (cube /
- *           octahedron / dodecahedron), so it doubles as the die's icon
+ * icon   -> the face used as the die's label icon. Where a die has an empty
+ *           face its art shows the real silhouette (cube / octahedron /
+ *           dodecahedron), which makes the best icon; otherwise it is the face
+ *           that reads most like "nothing happens".
  */
 var DICE = {
-    green: { label: "Child", sub: "Green", prefix: "Child", faces: 6, max: 6, blank: 6 },
-    blue: { label: "Male", sub: "Blue", prefix: "Male", faces: 6, max: 6, blank: 6 },
-    red: { label: "Female", sub: "Red", prefix: "Female", faces: 6, max: 6, blank: 6 },
-    yellow: { label: "Elder", sub: "Yellow", prefix: "Elder", faces: 6, max: 6, blank: 6 },
+    fertility: { label: "Fertility", sub: "Green", prefix: "Fertility", faces: 6, max: 8, icon: 6 },
+    maturity: { label: "Maturity", sub: "Blue", prefix: "Maturity", faces: 6, max: 8, icon: 2 },
 
-    whiteLight: { label: "White Light", prefix: "White-Light", faces: 6, max: 6, blank: 6 },
-    whiteMedium: { label: "White Medium", prefix: "White-Medium", faces: 8, max: 5, blank: 8 },
-    whiteHeavy: { label: "White Heavy", prefix: "White-Heavy", faces: 12, max: 4, blank: 12 },
+    tribe: { label: "Tribe", prefix: "Tribe", faces: 8, max: 10, icon: 8 },
 
-    blackLight: { label: "Black Light", prefix: "Black-Light", faces: 6, max: 6, blank: 6 },
-    blackMedium: { label: "Black Medium", prefix: "Black-Medium", faces: 8, max: 5, blank: 8 },
-    blackHeavy: { label: "Black Heavy", prefix: "Black-Heavy", faces: 12, max: 4, blank: 12 }
+    whiteLight: { label: "White Light", prefix: "White-Light", faces: 6, max: 6, icon: 6 },
+    whiteMedium: { label: "White Medium", prefix: "White-Medium", faces: 8, max: 5, icon: 8 },
+    whiteHeavy: { label: "White Heavy", prefix: "White-Heavy", faces: 12, max: 4, icon: 12 },
+
+    blackLight: { label: "Black Light", prefix: "Black-Light", faces: 6, max: 6, icon: 6 },
+    blackMedium: { label: "Black Medium", prefix: "Black-Medium", faces: 8, max: 5, icon: 8 },
+    blackHeavy: { label: "Black Heavy", prefix: "Black-Heavy", faces: 12, max: 4, icon: 12 }
 };
 
 function faceImage(key, face) {
     return "images/dice/" + DICE[key].prefix + "-" + face + ".png";
 }
 
-/* Blank face of the die, used as its label icon so the shape gives visual context. */
+/* One face of the die, used as its label icon so the art gives visual context. */
 function dieIcon(key) {
-    return '<img class="swatch" src="' + faceImage(key, DICE[key].blank) + '" alt="">';
+    return '<img class="swatch" src="' + faceImage(key, DICE[key].icon) + '" alt="">';
 }
 
 function rollFace(key) {

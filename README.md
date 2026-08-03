@@ -10,7 +10,8 @@ no dependencies — open `index.html` or serve the folder.
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Dice face reference for every die in the box |
-| `population.html` | Population dice roller |
+| `growth.html` | Growth dice roller (fertility + maturity) |
+| `tribe.html` | Tribe dice roller |
 | `action.html` | Action dice roller (formerly "encounter") |
 
 `encounter.html` is a redirect kept for old bookmarks.
@@ -19,10 +20,9 @@ no dependencies — open `index.html` or serve the folder.
 
 | Die | Faces | Available |
 | --- | --- | --- |
-| Child population (Green) | 6 | 6 |
-| Male population (Blue) | 6 | 6 |
-| Female population (Red) | 6 | 6 |
-| Elder population (Yellow) | 6 | 6 |
+| Fertility (Green) | 6 | 8 |
+| Maturity (Blue) | 6 | 8 |
+| Tribe | 8 | 10 |
 | White light | 6 | 6 |
 | White medium | 8 | 5 |
 | White heavy | 12 | 4 |
@@ -31,6 +31,9 @@ no dependencies — open `index.html` or serve the folder.
 | Black heavy | 12 | 4 |
 
 Steppers are clamped to the "Available" column, so you can never build a pool the box can't fill.
+
+Some faces repeat on the physical die (fertility 2–3; tribe 2–3, 4–5 and the two empty 7–8), so the
+face reference shows the same art more than once — that is the die, not a duplicate image.
 
 ## Re-rolling
 

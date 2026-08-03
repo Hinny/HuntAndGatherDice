@@ -183,8 +183,8 @@ h1.page-title {
 }
 
 /*
- * The die's blank face, used as its icon. The art is a transparent PNG of the real
- * polyhedron, so the rim light is what keeps the near-black dice readable on the
+ * The face a die uses as its icon. Where the art is a transparent PNG of the real
+ * polyhedron, the rim light is what keeps the near-black dice readable on the
  * dark surface.
  */
 img.swatch {
