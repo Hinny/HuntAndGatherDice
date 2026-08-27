@@ -10,19 +10,16 @@ no dependencies — open `index.html` or serve the folder.
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Dice face reference for every die in the box |
-| `growth.html` | Growth dice roller (fertility + maturity) |
-| `tribe.html` | Tribe dice roller |
-| `action.html` | Action dice roller (formerly "encounter") |
+| `action.html` | Action dice roller |
 
-`encounter.html` is a redirect kept for old bookmarks.
+`encounter.html`, `growth.html` and `tribe.html` are stubs kept for old bookmarks.
 
 ## Dice in the box
 
+Action dice are the only dice the game uses — 30 of them, 15 of each colour.
+
 | Die | Faces | Available |
 | --- | --- | --- |
-| Fertility (Green) | 6 | 8 |
-| Maturity (Blue) | 6 | 8 |
-| Tribe | 8 | 10 |
 | White light | 6 | 6 |
 | White medium | 8 | 5 |
 | White heavy | 12 | 4 |
@@ -32,8 +29,16 @@ no dependencies — open `index.html` or serve the folder.
 
 Steppers are clamped to the "Available" column, so you can never build a pool the box can't fill.
 
-Some faces repeat on the physical die (fertility 2–3 and 4–5; tribe 2–3, 4–5 and the two empty 7–8),
-so the face reference shows the same art more than once — that is the die, not a duplicate image.
+The attacker rolls black, the defender white; one die per labor spent on a weapon, or one per
+model for animals. Both sides roll at once and each selects up to two results. The same dice are
+rolled for hazards, and for the Animal Activity step at the start of a season.
+
+## The growth and tribe dice are gone
+
+Fertility, maturity and the tribe die have left the box. Growth is no longer a roll: it is a
+decision taken at the *End of the Year* and read off the population board, whose two tracks hold
+every member not yet in play. Their pages and art were removed with them, and `growth.html` and
+`tribe.html` now just say so.
 
 ## Dice art
 
@@ -42,11 +47,20 @@ so the face reference shows the same art more than once — that is the die, not
 label icon uses, so a die is recognised by its colour and silhouette instead of by whichever face
 happens to sit last in the list.
 
-## Growth pool minimums
+The faces match the rulebook's distributions exactly — a wound is an arrowhead, a special is a
+spiral, and a blank face is a miss:
 
-Fertility and maturity both start at 1. Turning either down to 0 shows the rule that puts it back:
-with at least one healthy female (fertility) or healthy child (maturity) in the settlement, the
-minimum for that die is 1. The stepper still allows 0 — the note is a reminder, not a lock.
+| Die | Faces |
+| --- | --- |
+| Black light (D6) | special · 2 wounds · 1 wound ×2 · blank ×2 |
+| Black medium (D8) | special ×2 · 3 wounds · 2 wounds ×2 · 1 wound · blank ×2 |
+| Black heavy (D12) | special ×3 · 4 wounds · 3 wounds ×2 · 2 wounds ×2 · 1 wound ×2 · blank ×2 |
+| White light (D6) | special · 1 wound · blank ×4 |
+| White medium (D8) | special ×2 · 2 wounds · 1 wound · blank ×4 |
+| White heavy (D12) | special ×3 · 3 wounds · 2 wounds ×2 · 1 wound ×2 · blank ×4 |
+
+The black dice are the aggressive ones: more and heavier wound faces, where the white die of the
+same size misses more often. Attacking is favoured — but the defender wins ties.
 
 ## Re-rolling
 

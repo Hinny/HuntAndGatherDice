@@ -3,59 +3,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <meta name="theme-color" content="#171613">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <title>Growth Dice · Hunt &amp; Gather</title>
+        <!-- The growth dice were retired when growth became a decision read off
+             the population board instead of a roll. Kept as a stub so an old
+             bookmark lands somewhere that says so, the way encounter.html does. -->
+        <link rel="canonical" href="index.html">
+        <title>Growth Dice retired &middot; Hunt &amp; Gather</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <script src="dice.js"></script>
     </head>
     <body>
-        <header class="topbar">
-            <div class="topbar-inner">
-                <p class="brand">Hunt &amp; Gather <span>Dice</span></p>
-                <nav class="tabs">
-                    <a href="index.html">Faces</a>
-                    <a href="growth.html" aria-current="page">Growth</a>
-                    <a href="tribe.html">Tribe</a>
-                    <a href="action.html">Action</a>
-                </nav>
-            </div>
-        </header>
-
         <main>
-            <h1 class="page-title">Growth Dice</h1>
-
-            <section class="card">
-                <h2>Dice pool</h2>
-                <div id="setup"></div>
-            </section>
-
-            <section class="card">
-                <h2>Result</h2>
-                <p class="hint">Tap any number of dice to select them, then re-roll. One re-roll per roll.</p>
-                <div id="results"></div>
-            </section>
-
-            <div class="actionbar">
-                <button type="button" id="roll" class="btn btn-primary">Roll</button>
-                <button type="button" id="reroll" class="btn btn-ghost" disabled>Re-roll selected</button>
-            </div>
+            <h1 class="page-title">The growth dice are gone</h1>
+            <p class="hint">
+                Growth is no longer rolled. It is a decision taken at the
+                <em>End of the Year</em> and read off the population board, so the
+                fertility and maturity dice have left the box.
+            </p>
+            <p class="hint">
+                The app now covers the <a href="action.html">action dice</a>, which are
+                the only dice the game still uses, and their
+                <a href="index.html">faces</a>.
+            </p>
         </main>
-
-        <script>
-            createRoller({
-                storageKey: "hg-growth-counts",
-                sections: [
-                    { title: "Fertility", keys: ["fertility"], defaultCount: 1 },
-                    { title: "Maturity", keys: ["maturity"], defaultCount: 1 }
-                ],
-                zeroNotes: {
-                    fertility: "If you have at least 1 healthy female member in your settlement the minimum number of fertility dice in the growth dice pool is 1.",
-                    maturity: "If you have at least 1 healthy child member in your settlement the minimum number of maturity dice in the growth dice pool is 1."
-                }
-            });
-        </script>
     </body>
 </html>

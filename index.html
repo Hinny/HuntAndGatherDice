@@ -17,8 +17,6 @@
                 <p class="brand">Hunt &amp; Gather <span>Dice</span></p>
                 <nav class="tabs">
                     <a href="index.html" aria-current="page">Faces</a>
-                    <a href="growth.html">Growth</a>
-                    <a href="tribe.html">Tribe</a>
                     <a href="action.html">Action</a>
                 </nav>
             </div>
@@ -26,14 +24,8 @@
 
         <main>
             <h1 class="page-title">Dice Faces</h1>
-            <p class="hint">Every face of every die in the box. Tap a die type to expand it.</p>
+            <p class="hint">Every face of every die in the box &mdash; 30 action dice, and nothing else. Tap a die type to expand it.</p>
 
-            <section id="faces-growth">
-                <h2 class="hint">Growth dice</h2>
-            </section>
-            <section id="faces-tribe">
-                <h2 class="hint">Tribe dice</h2>
-            </section>
             <section id="faces-white">
                 <h2 class="hint">White action dice</h2>
             </section>
@@ -43,8 +35,6 @@
         </main>
 
         <script>
-            renderFaceReference("faces-growth", ["fertility", "maturity"]);
-            renderFaceReference("faces-tribe", ["tribe"]);
             renderFaceReference("faces-white", ["whiteLight", "whiteMedium", "whiteHeavy"]);
             renderFaceReference("faces-black", ["blackLight", "blackMedium", "blackHeavy"]);
         </script>
