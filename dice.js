@@ -8,13 +8,13 @@
  * Every die also has a "<prefix>-Empty.png": the die with none of its symbols
  * on it. That is what the label icons use, so a die is recognised by its colour
  * and silhouette rather than by whichever face happens to sit last in the list.
+ *
+ * Action dice are all that is left. The growth dice (fertility, maturity) and
+ * the tribe die went when growth stopped being a roll and became a decision
+ * read off the population board at the End of the Year. The counts below are
+ * the box: 6/5/4 of each colour, 30 dice in all.
  */
 var DICE = {
-    fertility: { label: "Fertility", sub: "Green", prefix: "Fertility", faces: 6, max: 8 },
-    maturity: { label: "Maturity", sub: "Blue", prefix: "Maturity", faces: 6, max: 8 },
-
-    tribe: { label: "Tribe", prefix: "Tribe", faces: 8, max: 10 },
-
     whiteLight: { label: "White Light", prefix: "White-Light", faces: 6, max: 6 },
     whiteMedium: { label: "White Medium", prefix: "White-Medium", faces: 8, max: 5 },
     whiteHeavy: { label: "White Heavy", prefix: "White-Heavy", faces: 12, max: 4 },
